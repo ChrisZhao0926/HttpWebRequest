@@ -22,7 +22,7 @@ namespace ConsoleApplicationHttpWebRequest
             HttpWebRequest request = null;
             HttpWebResponse response = null;
             CookieContainer cc = new CookieContainer();
-            request = (HttpWebRequest)WebRequest.Create("http://lts.sonyericsson.net/");
+            request = (HttpWebRequest)WebRequest.Create("http://lts.sonyericsson.net/Account/Login");
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
             request.UserAgent = "Mozilla/5.0 Firefox/19.0";
@@ -46,6 +46,10 @@ namespace ConsoleApplicationHttpWebRequest
             StreamReader sr = new StreamReader(stream1);
             Console.WriteLine(sr.ReadToEnd());
 
+            Console.ReadKey();
+
+            FileManager fm = new FileManager();
+            fm.Write(@"C:\C#\HttpWebRequest\ConsoleApplicationHttpWebRequest\text.txt", "Hello World!");
             Console.ReadKey();
         }
     }
